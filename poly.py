@@ -35,23 +35,10 @@ def create_table(size = 1000):
     table_created = True
 
 '''
-print a polynomial w given degree
-'''
-def print_poly(deg):
-    global table_created
-    global table
-
-    if not table_created:
-        create_table()
-
-    for i in range(deg, -1, -1):
-        print(table[deg][i], end = 'x^%d + ' % i if i > 0 else '') 
-    print()
-
-'''
 print a polynomial w given degree taken mod
+if no mod is provided, then it just prints the polynomial out
 '''
-def print_poly(deg, mod):
+def print_poly(deg, mod = None):
     global table_created
     global table
 
@@ -59,7 +46,10 @@ def print_poly(deg, mod):
         create_table()
 
     for i in range(deg, -1, -1):
-        print(table[deg][i] % mod, end = 'x^%d + ' % i if i > 0 else '') 
+        if mod is None:
+            print(table[deg][i], end = 'x^%d + ' % i if i > 0 else '') 
+        else:
+            print(table[deg][i] % mod, end = 'x^%d + ' % i if i > 0 else '') 
     print()
 
 for i in range(20):
