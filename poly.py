@@ -54,3 +54,22 @@ def print_poly(deg, mod = None):
 
 for i in range(20):
     print_poly(i, 5)
+
+'''
+prints out the value of the expression evaluated at for a specific polynomial
+n = degree of polynomial
+val = val to evaluate (x = val in polynomial)
+'''
+def eval(n, val):
+    global table_created
+    global table
+
+    if not table_created:
+        create_table()
+
+    ans = 0
+    for i in range(n, -1, -1):
+        ans *= val
+        ans += table[n][i]
+
+    return ans
