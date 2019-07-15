@@ -59,6 +59,7 @@ for i in range(20):
 prints out the value of the expression evaluated at for a specific polynomial
 n = degree of polynomial
 val = val to evaluate (x = val in polynomial)
+use the decimal module for best accuracy
 '''
 def eval(n, val):
     global table_created
