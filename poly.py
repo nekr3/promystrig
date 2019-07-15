@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 '''
 don't run this file, just use the functions
 running the file is just for testing
@@ -52,9 +54,6 @@ def print_poly(deg, mod = None):
             print(table[deg][i] % mod, end = 'x^%d + ' % i if i > 0 else '') 
     print()
 
-for i in range(20):
-    print_poly(i, 5)
-
 '''
 prints out the value of the expression evaluated at for a specific polynomial
 n = degree of polynomial
@@ -67,6 +66,9 @@ def eval(n, val):
 
     if not table_created:
         create_table()
+
+    if not isinstance(val, Decimal):
+        print('warning: using the built-in decimal module gives better accuracy')
 
     ans = 0
     for i in range(n, -1, -1):
